@@ -1,5 +1,5 @@
 const express = require('express')
-const {soma, subtracao} = require('./teste')
+const {soma} = require('./teste')
 
 const server = express()
 const PORT = 8000
