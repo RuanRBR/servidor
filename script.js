@@ -1,7 +1,7 @@
 const express = require('express')
 const {soma, subtracao} = require('./teste')
 
-const server = express
+const server = express()
 const PORT = 8000
 
 //criar o server
