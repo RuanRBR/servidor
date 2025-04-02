@@ -8,8 +8,20 @@ const PORT = 8000
 const server = http.createServer((req,res) => {
     const urlCapturada = url.parse(req.url, true)
     const {query} = urlCapturada
-    let resultado = soma(Number(query.a), Number(query.b))
-    res.end(`O valor final é ${resultado}`)
+    let resultado = 0
+    let mensagem = 'O resultado é $(resultado)'
+    if (pathmame == '/soma') {
+        resultado = soma(Number(query.a), Number(query.b))
+    } else if (pathmame == '/subtracao') {
+    resultado = subtracao(Number(query.a), Number(query.b))
+    } else if (pathmame == '/multiplicacao') {
+    resultado = multiplicacao(Number(query.a), Number(query.b))
+    } else if (pathmame == '/divisao') {
+    resultado = divisao(Number(query.a), Number(query.b))
+    } else {
+        res.statusCode = 404
+        mensagem = 'Página não encontrada'
+    }res.end(mensagem)
 })
 
 // fazer ele ouvir na porta 8000
